@@ -15,7 +15,7 @@ int count(FILE *fp) {
 
 
 int main (void){
-    FILE *fp = fopen("pop.txt","r");
+    FILE *fp = fopen("wind.txt","r");
     if(fp != NULL){
         int c = count(fp);
         fclose(fp);

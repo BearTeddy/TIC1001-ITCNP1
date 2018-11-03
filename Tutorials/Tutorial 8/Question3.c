@@ -9,20 +9,13 @@ int count(FILE *fp) {
     bool bol = false;
     while ((c = fgetc(fp)) != EOF) //getting char by char as int.
     {   
-        if(bol == true) {
-            bol=false;
-            continue;
-        }
-        if(isspace(c)){
-            if(c=='\n'){ 
-                count++;
-                bol = true;
-            }
+        if(c=='.'){
+            count++;
+            bol = true;
         }
     }
     return count;
 }
-
 
 int main (void){
     FILE *fp = fopen("pop.txt","r");

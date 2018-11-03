@@ -3,23 +3,20 @@
 #include <stdbool.h>
 #include <ctype.h>
 
-void to_upper(FILE *in, FILE *out) {
+void copy(FILE *in, FILE *out) {
     char c;
+    bool bol = true;
     while ((c = fgetc(in)) != EOF) //getting char by char
-    {   
-         if(c>='a' && c<='z'){
-            c -= 'a'-'A';
-         }
-        fprintf(out,"%c",c);
+    {
+        fputc(c,out);
     }
 }
 
-
 int main (void){
-    FILE *fp = fopen("pop.txt","r");
+    FILE *fp = fopen("wind.txt","r");
     FILE *f2 = fopen("copytext.txt","w+");
     if(fp != NULL && f2 != NULL){
-        to_upper(fp,f2);
+        copy(fp,f2);
         fclose(fp);
         fclose(f2);
     }

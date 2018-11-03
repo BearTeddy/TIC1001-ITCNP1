@@ -4,19 +4,25 @@
 #include <ctype.h>
 
 void to_upper(FILE *in, FILE *out) {
-    char c;
+    char c=' ';
+    bool bol = true; //First Char is bold
     while ((c = fgetc(in)) != EOF) //getting char by char
     {   
-         if(c>='a' && c<='z'){
-            c -= 'a'-'A';
-         }
+        if(bol == true) {
+            if(c>='a' && c<='z'){
+                c -= 'a'-'A';
+            }
+            bol=false; // Dont allow uppercases anymore
+        }
+        if(isspace(c)){
+                bol = true; // Next word need to be UPPERCASE
+        }
         fprintf(out,"%c",c);
     }
 }
 
-
 int main (void){
-    FILE *fp = fopen("pop.txt","r");
+    FILE *fp = fopen("wind.txt","r");
     FILE *f2 = fopen("copytext.txt","w+");
     if(fp != NULL && f2 != NULL){
         to_upper(fp,f2);

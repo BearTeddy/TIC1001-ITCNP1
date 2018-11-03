@@ -4,21 +4,13 @@
 #include <ctype.h>
 
 int count(FILE *fp) {
-    int c;
+    char *c;
     int count=0;
     bool bol = false;
-    while ((c = fgetc(fp)) != EOF) //getting char by char as int.
+     //CAn use this also //   while (fscanf(fp,"%*s") != EOF)// 
+    while (fscanf(fp,"%s",c) != EOF) //getting string and assigning to c
     {   
-        if(bol == true) {
-            bol=false;
-            continue;
-        }
-        if(isspace(c)){
-            count++;
-            if(c=='\n'){ 
-                bol = true;
-            }
-        }
+       count++;
     }
     return count;
 }
