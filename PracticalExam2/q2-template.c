@@ -4,13 +4,8 @@
 // Q2
 void filter(const char *original, const char threshold, char *passed, char *failed)
 {
-    // Your answer here
-    
-    // strcpy(passed,"");
-    // strcpy(failed,"");
-    *passed="";
-    *failed="";
-
+    strcpy(passed,"");
+    strcpy(failed,"");
     int charcount = strlen(original);
     for (int i=0;i<charcount;i++){
         char c[0];
